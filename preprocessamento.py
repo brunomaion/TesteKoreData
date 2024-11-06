@@ -11,8 +11,11 @@ table_size = len(df)
 
 df = df.astype({col: 'string' for col in df.select_dtypes(include='object').columns})
 
+df['InvoiceDate'] = pd.to_datetime(df['InvoiceDate']).dt.date
+df['TotalPrice'] = df['UnitPrice'] * df['Quantity']
 df['CustomerID'] = df['CustomerID'].astype('Int64')
 df['CustomerID'] = df['CustomerID'].astype('string')
+
 
 
 # Dicionário StockCode e Descrição
