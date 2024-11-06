@@ -34,39 +34,56 @@ pip install numpy
 Para automatizar o processo de pré-processamento dos dados, criação do banco de dados `online_retail`, da tabela `invoices` e inserção dos dados processados no banco, foram criados dois scripts: um para Linux (`auto.sh`) e outro para Windows (`auto.bat`). Esses scripts realizam as etapas necessárias para preparar o ambiente e carregar os dados no banco de dados.
 Para executar, basta abrir o terminal no diretório principal e executtar o comando abaixo:
 
-'''bash
+```bash
 .\auto.bat
-'''
+```
 
-## Pré processamento
+## Pré-processamento
 
 
+O código carrega os dados a partir de um arquivo Excel (`Online Retail.xlsx`) para um DataFrame `df`.   
+- As colunas de tipo `object` são convertidas para o tipo `string`, padronizando o formato textual dos dados.
+- A coluna `InvoiceDate` é transformada para um formato de data.
+- Uma coluna `TotalPrice` é criada, calculando o preço total para cada transação como o produto entre `UnitPrice` e `Quantity`.
+- A coluna `CustomerID` é convertida para um tipo `string`, após garantir que valores nulos sejam representados corretamente.
 
-## Análise de dados
-a. Indicadores de Vendas:
-  1. Receita Total
-  2. Receita Diária/Mensal
-  3. Receita por País
+O dicionário `stock_dict` armazena uma relação entre códigos de estoque (`StockCode`) e descrições de produtos (`Description`). Caso uma linha não contenha uma descrição, o código busca a última descrição válida para o mesmo código de estoque, garantindo consistência nas descrições.
 
-b. Indicadores de Clientes:
-  1. Clientes Únicos
-  2. Top Clientes
-  3. Frequência de Compras por Cliente
+Um novo DataFrame `dfnew` é criado como uma cópia de `df`. A coluna `Description` é atualizada com base nas informações de `stock_dict`, substituindo valores ausentes com as descrições correspondentes. O DataFrame final é então exportado para um arquivo CSV (`processada.csv`).
 
-c. Indicadores de Produtos:
-  1. Produtos Mais Vendidos
-  2. Produtos com Melhor Desempenho por Categoria
-  3. Produtos Mais Devolvidos
+## Dashboard Interativa com Streamlit
 
-d. Indicadores de Transações:
-  1. Número de Transações
-  2. Transações com Devoluções
-  3. Ticket Médio
+Para facilitar a visualização e análise dos dados, foi desenvolvida uma dashboard interativa utilizando a biblioteca Streamlit. Esta dashboard permite explorar os indicadores de vendas, clientes, produtos e transações de forma dinâmica e intuitiva.
 
-e. Análise Temporal:
-  1. Variação Sazonal nas Vendas
-  2. Tendência de Vendas ao Longo do Tempo
+### Indicadores Utilizados na Dashboard
 
+A dashboard apresenta os seguintes indicadores:
+
+#### Indicadores de Vendas:
+1. **Receita Total**: Valor total das vendas realizadas.
+2. **Receita Diária/Mensal**: Receita acumulada por dia e por mês.
+3. **Receita por País**: Receita gerada por cada país.
+
+#### Indicadores de Clientes:
+1. **Clientes Únicos**: Número de clientes distintos.
+2. **Top Clientes**: Clientes que mais contribuíram para a receita.
+3. **Frequência de Compras por Cliente**: Número médio de compras por cliente.
+
+#### Indicadores de Produtos:
+1. **Produtos Mais Vendidos**: Produtos com maior quantidade vendida.
+2. **Produtos com Melhor Desempenho por Categoria**: Produtos que geraram maior receita em cada categoria.
+3. **Produtos Mais Devolvidos**: Produtos com maior número de devoluções.
+
+#### Indicadores de Transações:
+1. **Número de Transações**: Total de transações realizadas.
+2. **Transações com Devoluções**: Transações que incluíram devoluções.
+3. **Ticket Médio**: Valor médio por transação.
+
+#### Análise Temporal:
+1. **Variação Sazonal nas Vendas**: Análise das variações sazonais nas vendas.
+2. **Tendência de Vendas ao Longo do Tempo**: Tendência das vendas ao longo do período analisado.
+
+A dashboard foi projetada para ser intuitiva e fácil de usar, permitindo que os usuários filtrem e explorem os dados conforme necessário para obter insights valiosos.
 
 ### ANOTAÇOES
 
