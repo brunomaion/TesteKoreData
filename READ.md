@@ -29,25 +29,17 @@ pip install matplotlib
 pip install numpy
 ```
 
-```bash
-# Crie um ambiente virtual
-python -m venv venv
+## Automatização
 
-# Ative o ambiente virtual
-# No Windows
-venv\Scripts\activate
-# No macOS/Linux
-source venv/bin/activate
+Para automatizar o processo de pré-processamento dos dados, criação do banco de dados `online_retail`, da tabela `invoices` e inserção dos dados processados no banco, foram criados dois scripts: um para Linux (`auto.sh`) e outro para Windows (`auto.bat`). Esses scripts realizam as etapas necessárias para preparar o ambiente e carregar os dados no banco de dados.
+Para executar, basta abrir o terminal no diretório principal e executtar o comando abaixo:
 
-# Instale as dependências
-pip install -r requirements.txt
-```
-
-Jupyter $ pip install Jupyter
-Pandas $ pip install Pandas
-
+'''bash
+.\auto.bat
+'''
 
 ## Pré processamento
+
 
 
 ## Análise de dados
