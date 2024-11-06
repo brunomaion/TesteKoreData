@@ -38,6 +38,10 @@ Para executar, basta abrir o terminal no diretório principal e executtar o coma
 .\auto.bat
 ```
 
+### Configuração do Banco de Dados local
+
+Para configurar o banco de dados PostgreSQL e preparar o ambiente para a análise de dados, foi criado um arquivo de configuração SQL (`config.sql`), onde o usuário pode editar as credenciais de acordo com o servidor utilizado.
+
 ## Pré-processamento
 
 
@@ -149,3 +153,11 @@ SELECT CustomerID, SUM(UnitPrice * Quantity) AS receita_cliente FROM invoices GR
 ```
 
 ![alt text](imagens/sql/image-5.png)
+
+
+
+# PowerBI
+
+# Conexão
+
+![alt text](pbi.png)
