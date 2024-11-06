@@ -132,7 +132,7 @@ st.metric(label="Clientes Únicos", value=clientes_unicos)
 
 # Indicador: Top Clientes
 st.write("Top Clientes por Receita:")
-top_clientes = df.groupby('customerid')['totalprice'].sum().sort_values(ascending=False).head(10)
+top_clientes = df.groupby('customerid')['totalprice'].sum().sort_values(ascending=False)
 st.dataframe(top_clientes.head(max_registro))
 
 # Indicador: Frequência de Compras por Cliente
@@ -146,17 +146,16 @@ st.dataframe(frequencia_compras.head(max_registro))
 st.header("Produtos")
 
 # Indicador: Produtos Mais Vendidos
-produtos_mais_vendidos = df.groupby('description')['quantity'].sum().sort_values(ascending=False).head(10)
+produtos_mais_vendidos = df.groupby('description')['quantity'].sum().sort_values(ascending=False)
 st.write("Produtos Mais Vendidos:")
 st.dataframe(produtos_mais_vendidos.head(max_registro))
 
 # Indicador: Produtos com Melhor Desempenho por Categoria (assumindo que 'StockCode' é a categoria)
-melhor_desempenho_categoria = df.groupby('stockcode')['totalprice'].sum().sort_values(ascending=False).head(10)
-st.write("Produtos com Melhor Desempenho por Categoria:")
+melhor_desempenho_categoria = df.groupby('stockcode')['totalprice'].sum().sort_values(ascending=False)
 st.dataframe(melhor_desempenho_categoria.head(max_registro))
 
 # Indicador: Produtos Mais Devolvidos
-produtos_devolvidos = df[df['quantity'] < 0].groupby('description')['quantity'].sum().sort_values().head(10)
+produtos_devolvidos = df[df['quantity'] < 0].groupby('description')['quantity'].sum().sort_values()
 st.write("Produtos Mais Devolvidos:")
 st.dataframe(produtos_devolvidos.head(max_registro))
 
