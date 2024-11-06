@@ -53,7 +53,18 @@ Um novo DataFrame `dfnew` é criado como uma cópia de `df`. A coluna `Descripti
 
 ## Dashboard Interativa com Streamlit
 
-Para facilitar a visualização e análise dos dados, foi desenvolvida uma dashboard interativa utilizando a biblioteca Streamlit. Esta dashboard permite explorar os indicadores de vendas, clientes, produtos e transações de forma dinâmica e intuitiva.
+Para facilitar a visualização e análise dos dados, foi desenvolvida uma dashboard interativa utilizando a biblioteca Streamlit. Para executar a dashboard, utilize o comando abaixo no terminal:
+
+```bash
+streamlit run dashboard.py
+```
+Certifique-se de estar no diretório onde o arquivo `dashboard.py` está localizado. A aplicação será aberta em seu navegador padrão, permitindo a interação com os dados.
+
+#### Filtros Disponíveis:
+1. **Seleção de Países**: Permite selecionar um ou mais países para filtrar os dados exibidos.
+2. **Máximo de registros por Exibição**: Define o número máximo de registros a serem exibidos em cada visualização.
+
+![alt text](image-1.png)
 
 ### Indicadores Utilizados na Dashboard
 
