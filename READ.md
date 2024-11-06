@@ -53,6 +53,8 @@ Um novo DataFrame `dfnew` é criado como uma cópia de `df`. A coluna `Descripti
 
 ## Dashboard Interativa com Streamlit
 
+![alt text](imagens/image.png)
+
 Para facilitar a visualização e análise dos dados, foi desenvolvida uma dashboard interativa utilizando a biblioteca Streamlit. Para executar a dashboard, utilize o comando abaixo no terminal:
 
 ```bash
@@ -64,7 +66,7 @@ Certifique-se de estar no diretório onde o arquivo `dashboard.py` está localiz
 1. **Seleção de Países**: Permite selecionar um ou mais países para filtrar os dados exibidos.
 2. **Máximo de registros por Exibição**: Define o número máximo de registros a serem exibidos em cada visualização.
 
-![alt text](image-1.png)
+![alt text](imagens/image-1.png)
 
 ### Indicadores Utilizados na Dashboard
 
