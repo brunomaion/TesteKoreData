@@ -161,3 +161,24 @@ SELECT CustomerID, SUM(UnitPrice * Quantity) AS receita_cliente FROM invoices GR
 # Conexão
 
 ![alt text](pbi.png)
+
+
+# DASH
+
+![alt text](imagens/dash/image.png)
+
+![alt text](imagens/dash/image-1.png)
+
+
+![alt text](imagens/dash/image-2.png)
+![alt text](imagens/dash/image-3.png)
+
+![alt text](imagens/dash/image-4.png)
+
+
+![alt text](imagens/dash/image-5.png)
+
+![alt text](imagens/dash/image-6.png)
+
+
+![alt text](imagens/dash/image-7.png)
