@@ -98,8 +98,54 @@ A dashboard apresenta os seguintes indicadores:
 
 A dashboard foi projetada para ser intuitiva e fácil de usar, permitindo que os usuários filtrem e explorem os dados conforme necessário para obter insights valiosos.
 
-### ANOTAÇOES
+# SQL
 
-Descontos e devoluções não foram possiveis ser contabilizadas devido a não possuirem preço de devolução, o que pode ser realizado é um tratamento de busca no pré processamen
-Consultas diretas no SQL com a dah tem um
-tempo de espera muito grande
+Optei por manipular os dados utilizando Python, fazendo apenas uma requisição SQL, devido ao desempenho. No entanto, abaixo estão algumas consultas que foram testadas para verificar a integridade do banco e da análise:
+
+![Banco de Dados](imagens/sql/1-banco.png)
+
+![Relação de Dados](imagens/sql/2-relacaoInvoices.png)
+
+### Consultas SQL
+
+```sql
+-- Verificar o número total de transações
+SELECT COUNT(*) AS total_transacoes FROM invoices;
+```
+
+![alt text](imagens/sql/image.png)
+
+```sql
+-- Verificar o número total de clientes
+SELECT COUNT(DISTINCT CustomerID) AS total_clientes FROM invoices;
+```
+
+![alt text](imagens/sql/image-1.png)
+
+```sql
+-- Verificar a receita total
+SELECT SUM(UnitPrice * Quantity) AS receita_total FROM invoices;
+```
+
+![alt text](imagens/sql/image-2.png)
+
+```sql
+-- Verificar a receita por país
+SELECT Country, SUM(UnitPrice * Quantity) AS receita_pais FROM invoices GROUP BY Country ORDER BY receita_pais DESC;
+```
+
+![alt text](imagens/sql/image-3.png)
+
+```sql
+-- Verificar os produtos mais vendidos
+SELECT StockCode, Description, SUM(Quantity) AS quantidade_vendida FROM invoices GROUP BY StockCode, Description ORDER BY quantidade_vendida DESC LIMIT 10;
+```
+
+![alt text](imagens/sql/image-4.png)
+
+```sql
+-- Verificar os clientes que mais contribuíram para a receita
+SELECT CustomerID, SUM(UnitPrice * Quantity) AS receita_cliente FROM invoices GROUP BY CustomerID ORDER BY receita_cliente DESC LIMIT 10;
+```
+
+![alt text](imagens/sql/image-5.png)
